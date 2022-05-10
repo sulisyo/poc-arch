@@ -1,0 +1,29 @@
+//
+//  BoredAPI.swift
+//  TicTacToe
+//
+//  Created by Wahyu Sulistyo on 09/05/22.
+//
+
+import Foundation
+import RxAlamofire
+import Alamofire
+import RxSwift
+
+class BoredApi {
+    let url = "https://www.boredapi.com/api/activity/"
+    
+    let session = Session(interceptor: BoredRequestAdapter.shared)
+
+
+    func getBoringActivity() -> Single<BoringActivity> {
+        return session.rx
+            .data(.get, url)
+            .map { data -> BoringActivity in
+                let output = try JSONDecoder().decode(BoringActivity.self, from: data)
+                return output
+            }
+            .asSingle()
+    }
+    
+}
