@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 
+import Foundation
 import NeedleFoundation
 import RxSwift
 import UIKit
@@ -68,9 +69,25 @@ private func factory3f7d60e2119708f293bac0d8c882e1e0d9b5eda1(_ component: Needle
 private func factory3f7d60e2119708f293ba0b20504d5a9e5588d7b3(_ component: NeedleFoundation.Scope) -> AnyObject {
     return ScoreSheetDependency97f2595a691a56781aaaProvider(loggedInComponent: parent1(component) as! LoggedInComponent)
 }
+private class BoringRepositoryDependency31c09d8ff5a92e483727Provider: BoringRepositoryDependency {
+    var boredApi: BoredApi {
+        return rootComponent.boredApi
+    }
+    private let rootComponent: RootComponent
+    init(rootComponent: RootComponent) {
+        self.rootComponent = rootComponent
+    }
+}
+/// ^->RootComponent->BoringRepositoryComponent
+private func factory080bdeb39521388c4028b3a8f24c1d289f2c0f2e(_ component: NeedleFoundation.Scope) -> AnyObject {
+    return BoringRepositoryDependency31c09d8ff5a92e483727Provider(rootComponent: parent1(component) as! RootComponent)
+}
 private class LoggedOutDependencyacada53ea78d270efa2fProvider: LoggedOutDependency {
     var mutablePlayersStream: MutablePlayersStream {
         return rootComponent.mutablePlayersStream
+    }
+    var boringRepositoryComponent: BoringRepositoryComponent {
+        return rootComponent.boringRepositoryComponent
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {
@@ -98,6 +115,7 @@ private func register1() {
     registerProviderFactory("^->RootComponent->LoggedInComponent->ScoreSheetComponent", factory3f7d60e2119708f293ba0b20504d5a9e5588d7b3)
     registerProviderFactory("^->RootComponent->LoggedInComponent", factoryEmptyDependencyProvider)
     registerProviderFactory("^->RootComponent", factoryEmptyDependencyProvider)
+    registerProviderFactory("^->RootComponent->BoringRepositoryComponent", factory080bdeb39521388c4028b3a8f24c1d289f2c0f2e)
     registerProviderFactory("^->RootComponent->LoggedOutComponent", factory1434ff4463106e5c4f1bb3a8f24c1d289f2c0f2e)
 }
 

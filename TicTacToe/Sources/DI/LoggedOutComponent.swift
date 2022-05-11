@@ -19,12 +19,13 @@ import UIKit
 
 protocol LoggedOutDependency: Dependency {
     var mutablePlayersStream: MutablePlayersStream { get }
+    var boringRepositoryComponent: BoringRepositoryComponent { get }
 }
 
 class LoggedOutComponent: Component<LoggedOutDependency>, LoggedOutBuilder {
 
     var loggedOutViewController: UIViewController {
-        return LoggedOutViewController(mutablePlayersStream: dependency.mutablePlayersStream, boringRepository: BoringRepository(boredApi: BoredApi()))
+        return LoggedOutViewController(mutablePlayersStream: dependency.mutablePlayersStream, boringRepository: dependency.boringRepositoryComponent.boringRepository)
     }
     
 }

@@ -28,7 +28,8 @@ class BoredRequestAdapter: RequestInterceptor, RequestRetrier {
 
         if let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 {
             requestsToRetry.append(completion)
-
+        
+            
             if !isRefreshing {
                 refreshTokens { [weak self] succeeded, accessToken in
                     guard let strongSelf = self else { return }

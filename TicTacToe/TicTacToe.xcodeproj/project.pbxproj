@@ -13,6 +13,7 @@
 		2F1F4FB42828F163000D341D /* BoringRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F4FB32828F163000D341D /* BoringRepository.swift */; };
 		2F1F4FB72828F188000D341D /* BoredAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F4FB62828F188000D341D /* BoredAPI.swift */; };
 		2F7FB3A8282A0A28001AD8F8 /* BoredRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FB3A7282A0A28001AD8F8 /* BoredRequestAdapter.swift */; };
+		2FC71C98282B84B200B5D354 /* BoringRepositoryComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC71C97282B84B200B5D354 /* BoringRepositoryComponent.swift */; };
 		4139095720A0F2BC00A26FF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139095620A0F2BC00A26FF5 /* AppDelegate.swift */; };
 		4139095E20A0F2BD00A26FF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4139095D20A0F2BD00A26FF5 /* Assets.xcassets */; };
 		4139096120A0F2BD00A26FF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4139095F20A0F2BD00A26FF5 /* LaunchScreen.storyboard */; };
@@ -49,6 +50,7 @@
 		2F1F4FB32828F163000D341D /* BoringRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringRepository.swift; sourceTree = "<group>"; };
 		2F1F4FB62828F188000D341D /* BoredAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredAPI.swift; sourceTree = "<group>"; };
 		2F7FB3A7282A0A28001AD8F8 /* BoredRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoredRequestAdapter.swift; sourceTree = "<group>"; };
+		2FC71C97282B84B200B5D354 /* BoringRepositoryComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringRepositoryComponent.swift; sourceTree = "<group>"; };
 		4139095320A0F2BC00A26FF5 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4139095620A0F2BC00A26FF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4139095D20A0F2BD00A26FF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				4139097820A1111900A26FF5 /* RootComponent.swift */,
 				F7DA7ADF20A275DA0037FF17 /* ScoreSheetComponent.swift */,
 				4139097F20A21F0500A26FF5 /* LoggedOutComponent.swift */,
+				2FC71C97282B84B200B5D354 /* BoringRepositoryComponent.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4139099B20A2489100A26FF5 /* ScoreStream.swift in Sources */,
+				2FC71C98282B84B200B5D354 /* BoringRepositoryComponent.swift in Sources */,
 				4139098020A21F0500A26FF5 /* LoggedOutComponent.swift in Sources */,
 				2F1F4FB72828F188000D341D /* BoredAPI.swift in Sources */,
 				2F7FB3A8282A0A28001AD8F8 /* BoredRequestAdapter.swift in Sources */,

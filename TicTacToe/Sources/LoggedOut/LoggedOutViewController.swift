@@ -19,6 +19,8 @@ import UIKit
 import RxSwift
 
 class LoggedOutViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
 
     init(mutablePlayersStream: MutablePlayersStream, boringRepository: BoringRepository) {
         self.mutablePlayersStream = mutablePlayersStream
@@ -99,7 +101,13 @@ class LoggedOutViewController: UIViewController {
         boringButton.setTitle("Boring", for: .normal)
         boringButton.setTitleColor(UIColor.white, for: .normal)
         boringButton.backgroundColor = UIColor.black
-        boringButton.addTarget(self, action: #selector(didTapBoringButton), for: .touchUpInside)
+//        boringButton.addTarget(self, action: #selector(didTapBoringButton), for: .touchUpInside)
+        boringButton.rx.tap
+            .subscribe(onNext: { [weak self] (_) in
+                guard let self = self else {return}
+                self.didTapBoringButton()
+            })
+            .disposed(by: disposeBag)
     }
 
     @objc
@@ -114,13 +122,14 @@ class LoggedOutViewController: UIViewController {
     private func didTapBoringButton() {
         boringRepository.getBoringActivity()
             .subscribe(on: MainScheduler())
-            .subscribe { boringActivity in
+            .subscribe(onSuccess: { [weak self] boringActivity in
+                guard let self = self else {return}
                 self.player1Field?.text = boringActivity.activity
-            } onFailure: { error in
-                
-            } onDisposed: {
+            }, onFailure: { error in
                 
             }
+            )
+            .disposed(by: disposeBag)
 
     }
 }

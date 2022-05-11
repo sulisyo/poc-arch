@@ -39,6 +39,9 @@ class RootComponent: BootstrapComponent {
         return LoggedInComponent(parent: self)
     }
     
+    var boringRepositoryComponent: BoringRepositoryComponent {
+        return BoringRepositoryComponent(parent: self)
+    }
     
     var boredApi: BoredApi {
         return BoredApi()
