@@ -70,8 +70,8 @@ private func factory3f7d60e2119708f293ba0b20504d5a9e5588d7b3(_ component: Needle
     return ScoreSheetDependency97f2595a691a56781aaaProvider(loggedInComponent: parent1(component) as! LoggedInComponent)
 }
 private class BoringRepositoryDependency31c09d8ff5a92e483727Provider: BoringRepositoryDependency {
-    var boredApi: BoredApi {
-        return rootComponent.boredApi
+    var boredRequestAdapter: BoredRequestAdapter {
+        return rootComponent.boredRequestAdapter
     }
     private let rootComponent: RootComponent
     init(rootComponent: RootComponent) {

@@ -43,7 +43,7 @@ class RootComponent: BootstrapComponent {
         return BoringRepositoryComponent(parent: self)
     }
     
-    var boredApi: BoredApi {
-        return BoredApi()
+    var boredRequestAdapter: BoredRequestAdapter {
+        return BoredRequestAdapter()
     }
 }

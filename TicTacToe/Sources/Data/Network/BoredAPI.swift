@@ -13,8 +13,11 @@ import RxSwift
 class BoredApi {
     let url = "https://www.boredapi.com/api/activity/"
     
-    let session = Session(interceptor: BoredRequestAdapter.shared)
+    let session: Session
 
+    init(interceptor: BoredRequestAdapter){
+        session = Session(interceptor: interceptor)
+    }
 
     func getBoringActivity() -> Single<BoringActivity> {
         return session.rx
