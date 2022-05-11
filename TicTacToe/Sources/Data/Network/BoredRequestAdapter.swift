@@ -7,7 +7,6 @@
 
 import Foundation
 import Alamofire
-import XCTest
 
 class BoredRequestAdapter: RequestInterceptor, RequestRetrier {
     
