@@ -125,6 +125,7 @@ class LoggedOutViewController: UIViewController {
             .subscribe(onSuccess: { [weak self] boringActivity in
                 guard let self = self else {return}
                 self.player1Field?.text = boringActivity.activity
+                self.player2Field?.text = boringActivity.type
             }, onFailure: { error in
                 
             }
